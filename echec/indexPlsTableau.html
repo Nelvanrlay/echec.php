@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <table id="tableau"></table>
+    <script>
+
+        
+
+            let tableau = document.getElementById("tableau")
+            let nblignes = 8
+            let nbcolonnes = 8
+            //¨Pour écrire seulement sur les bonnes lignes
+            let ligneTexteNoir = [0,1]
+            let ligneTexteBlanc = [nblignes-2,nblignes-1]
+            let echiquier = [
+                ["Tour", "Cavalier", "Fou", "Reine", "Roi", "Fou", "Cavalier", "Tour"],
+                ["Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion"],
+                ["","","","","","","","",],
+                ["","","","","","","","",],
+                ["","","","","","","","",],
+                ["","","","","","","","",],
+                ["Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion"],
+                ["Tour", "Cavalier", "Fou", "Reine", "Roi", "Fou", "Cavalier", "Tour"],
+            ]
+            
+
+            //La booucle des lignes 
+            for (let i = 0; i < nblignes; i++) {                
+                var ligne = document.createElement ("tr")
+                for (let j = 0; j < nbcolonnes; j++) {
+                    //la boucle des cellules de la ligne
+                    var cell = document.createElement ("td")
+                    //Prend échequier pour mettre les donner dans les lignes spécifiques
+                    if (ligneTexteNoir.includes(i)) {
+                        cell.innerHTML=echiquier[i][j] + " Noir"
+                    }
+                    if (ligneTexteBlanc.includes(i)) {
+                        cell.innerHTML=echiquier[i][j] + " Blanc"
+                    }
+                    //Alterner les couleurs
+                    if (i%2 == 1) {
+                        if (j%2 == 0) {
+                            cell.classList.add("noire")
+                        } else {
+                            cell.classList.add("blanc")
+                        }             
+                    } else {
+                        if (j%2 == 0) {
+                            cell.classList.add("blanc")
+                        } else {
+                            cell.classList.add("noire")
+                        }             
+                    }
+                    ligne.appendChild(cell)
+                }
+            tableau.appendChild(ligne)
+            }
+
+           
+
+
+
+        
+        
+        
+        </script>
+        
+    
+</body>
+</html>
+

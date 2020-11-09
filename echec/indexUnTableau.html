@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <table id="tableau"></table>
+    <script>
+
+           // let swap = function(array, element1, element2) {
+              //  let temporaire = array[element1]
+               // array[element1] = array[element2]
+               // array[element2] = temporaire
+               // return array
+           // }
+        
+            let tableau = document.getElementById("tableau")
+            let nblignes = 8
+            let nbcolonnes = 8
+            //¨Pour écrire seulement sur les bonnes lignes
+            let ligneJoueurNoir = [0,1]
+            let ligneJoueurBlanc = [nblignes-2,nblignes-1]
+            const pieces = [
+                "Tour", "Cavalier", "Fou", "Reine", "Roi", "Fou", "Cavalier", "Tour",
+                "Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion", "Pion"
+            ]
+            let piecesJ1 = pieces.slice()
+            
+            var piecesJ2 = pieces.slice()
+            
+            let temporaire = piecesJ2[3]
+            piecesJ2[3] = piecesJ2[4]
+            piecesJ2[4] = temporaire
+
+            piecesJ2.reverse()
+
+            //Representer juste les pièces, juste Un seul tableau 
+            
+
+            //La booucle des lignes 
+            for (let i = 0; i < nblignes; i++) {                
+                var ligne = document.createElement ("tr")
+                for (let j = 0; j < nbcolonnes; j++) {
+                    //la boucle des cellules de la ligne
+                    var cell = document.createElement ("td")
+                    //Remplir l'échiquier avec le tableau
+                    if (ligneJoueurNoir.includes(i)) {
+                        cell.innerHTML = piecesJ1.shift() + " Noir"
+                    } else if (ligneJoueurBlanc.includes(i)) {
+                        cell.innerHTML = piecesJ2.shift() + " Blanc"
+                    }
+                   
+
+                    //Alterner les couleurs avec modulo et boucles imbriquées
+                    if (i%2 == 1) {
+                        if (j%2 == 0) {
+                            cell.classList.add("noire")
+                        } else {
+                            cell.classList.add("blanc")
+                        }             
+                    } else {
+                        if (j%2 == 0) {
+                            cell.classList.add("blanc")
+                        } else {
+                            cell.classList.add("noire")
+                        }             
+                    }
+                    ligne.appendChild(cell)
+                }
+            tableau.appendChild(ligne)
+            }        
+        
+        
+        </script>
+        
+    
+</body>
+</html>
+

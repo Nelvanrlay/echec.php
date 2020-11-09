@@ -1,0 +1,29 @@
+.noire {
+    background-color: black;
+    
+    height : 100px;
+    width : 100px;
+    border : 1px solid #000000;
+    font-size: 4em;
+    text-align: center;
+}
+
+.blanc {
+    height : 100px;
+    width : 100px;    
+    border : 1px solid #000000;
+    font-size: 4em;
+    text-align: center;
+}
+
+#tableau {
+    border-collapse: collapse;
+}
+
+.pion {
+    color: rgb(237, 29, 185);
+}
+
+.pionJ2 {
+    color: rgb(29, 213, 237);
+}
