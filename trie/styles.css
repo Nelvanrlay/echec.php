@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+} 
+
+html, body { 
+    margin: 0;
+    font-size: 16px;
+}
+
+body {
+    background-image: url("ressources/cover.jpg");
+    background-size: cover;
+
+}
+
+.wrapper {
+    background-color: white;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #4A72C6;
+}
+
+.portfolio img {
+    height: 200px;
+    object-fit: cover;
+    width: 256px;
+    vertical-align: bottom;
+}
+
+.portfolio figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+}
+
+.portfolio figcaption {
+    position: absolute;
+    font-size: 3em;
+    opacity: 0.3;
+    color: #ffffff;
+}
+
+.portfolio figcaption:hover {
+    color: white;
+    opacity: 1;
+}
+
+.trie-galerie {
+    display: flex; 
+}
+
+.trie-galerie ul {
+    list-style-type: none;
+    display: flex;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    padding-left: 5em;
+}
+
+.trie-galerie li {
+    font-size: 0.7em;
+    padding-right: 3em;
+}
+
+.cache {
+    display:none
+}
